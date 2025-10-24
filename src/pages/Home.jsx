@@ -3,21 +3,25 @@ import DecorativeBar from "../components/DecorativeBar";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Preview from "/Preview.png";
+import { useContext } from "react";
+import { DarkModeContext } from "../context/DarkModeContext.jsx"; // ✅ Import context
 
 const Home = () => {
+  const { darkMode } = useContext(DarkModeContext); // true or false
+
   return (
     <>
       <Navbar />
 
-      {/* Home Page Content Here */}
-      <div className="">
+      <div className={darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}>
         <main className="relative z-0 flex min-h-screen flex-col">
           {/* HERO SECTION */}
           <section>
             <div className="py-30 mt-25 relative mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-5 px-6">
               <a
                 href="/"
-                className="inline-flex items-center justify-center rounded-md border px-3 py-1 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent cursor-pointer gap-1 bg-[#202020] text-white hover:bg-[#202020]/80"
+                className={`inline-flex items-center justify-center rounded-md border px-3 py-1 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent cursor-pointer gap-1
+                ${darkMode ? "bg-gray-800 text-white hover:bg-gray-700/80" : "bg-[#202020] text-white hover:bg-[#202020]/80"}`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -36,11 +40,11 @@ const Home = () => {
                 Under construction
               </a>
 
-              <h1 className="font-lora text-black/75 max-w-lg text-center text-4xl font-bold">
+              <h1 className={darkMode ? "font-lora text-white/80 max-w-lg text-center text-4xl font-bold" : "font-lora text-black/75 max-w-lg text-center text-4xl font-bold"}>
                 Bring your ideas to life. Support and collaborate with Africa's
                 talent.
               </h1>
-              <p className="max-w-lg text-center text-black/60 fontd-medium">
+              <p className={darkMode ? "max-w-lg text-white/60 fontd-medium" : "max-w-lg text-black/60 fontd-medium"}>
                 We are currently developing our app to provide you with the best
                 possible experience. It will be available soon!
               </p>
@@ -48,7 +52,9 @@ const Home = () => {
               <div className="flex gap-5">
                 <Link
                   to="/"
-                  className='inline-flex items-center justify-center cursor-pointer whitespace-nowrap text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*="size-"])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none aria-invalid:ring-destructive/20 aria-invalid:border-destructive select-none py-2 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5 mt-4 border border-zinc-950/5 bg-yellow-500 text-white hover:bg-yellow-600 transition-all duration-300 ease-in-out active:scale-[0.93]'
+                  className={`inline-flex items-center justify-center cursor-pointer whitespace-nowrap text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*="size-"])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none aria-invalid:ring-destructive/20 aria-invalid:border-destructive select-none py-2 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5 mt-4 border
+                  ${darkMode ? "border-gray-700 bg-yellow-500 text-white hover:bg-yellow-600" : "border-zinc-950/5 bg-yellow-500 text-white hover:bg-yellow-600"}
+                  transition-all duration-300 ease-in-out active:scale-[0.93]`}
                 >
                   Get started free
                 </Link>
@@ -57,12 +63,12 @@ const Home = () => {
           </section>
 
           {/* DECORATIVE BAR */}
-          <DecorativeBar />
+          <DecorativeBar darkMode={darkMode} />
 
           {/* PREVIEW INTERFACE */}
           <section>
             <div className="w-full max-w-5xl mx-auto mt-10">
-              <div className="rounded-xl p-1 text-sm mt-16 border border-zinc-950/5 bg-zinc-950/5">
+              <div className={`rounded-xl p-1 text-sm mt-16 border ${darkMode ? "border-gray-700 bg-gray-800/20" : "border-zinc-950/5 bg-zinc-950/5"}`}>
                 <div className="flex items-center gap-2 px-3 py-2 rounded-xl">
                   <span className="size-3 rounded-full bg-red-500"></span>
                   <span className="size-3 rounded-full bg-yellow-400"></span>
@@ -82,13 +88,11 @@ const Home = () => {
           </section>
 
           {/* ABOUT SECTION */}
-          <section>
-            
-          </section>
+          <section></section>
         </main>
       </div>
 
-      <Footer />
+      <Footer darkMode={darkMode} />
     </>
   );
 };
