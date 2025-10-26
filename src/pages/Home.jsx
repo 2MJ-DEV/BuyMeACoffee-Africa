@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom";
 import DecorativeBar from "../components/DecorativeBar";
-import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Preview from "/Preview.png";
 import { Drama } from "lucide-react";
-import about1 from "/About1.png";
 import about2 from "/image.png";
-import { FaGithub, FaGithubSquare } from "react-icons/fa";
-import { FaGithubAlt } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa";
 
 const Home = () => {
   return (
@@ -32,19 +29,22 @@ const Home = () => {
                 Bring your ideas to life. Support and collaborate with Africa's
                 talent.
               </h1>
-              <p className="max-w-lg text-center text-black/60 fontd-medium">
+              <p className="max-w-lg text-center text-black/60 font-medium">
                 We are currently developing our app to provide you with the best
                 possible experience. It will be available soon!
               </p>
 
               <div className="flex gap-5">
                 <Link
-                  to="./login"
+                  to="/login"
                   className='inline-flex items-center justify-center cursor-pointer whitespace-nowrap text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*="size-"])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none aria-invalid:ring-destructive/20 aria-invalid:border-destructive select-none py-2 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5 mt-4 border border-zinc-950/5 bg-yellow-500 text-white hover:bg-yellow-600 transition-all duration-300 ease-in-out active:scale-[0.93]'
                 >
                   Get started free
                 </Link>
               </div>
+              <p className="mt-4 text-center text-sm text-black/50">
+                Need help? <Link to="/docs" className="underline hover:text-black/70">Read our documentation</Link>
+              </p>
             </div>
           </section>
 
@@ -105,7 +105,7 @@ const Home = () => {
                 </div>
                 <div className="flex justify-center mb-16">
                   <Link
-                    href="./login"
+                    to="/login"
                     className='inline-flex items-center justify-center cursor-pointer whitespace-nowrap text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*="size-"])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none aria-invalid:ring-destructive/20 aria-invalid:border-destructive select-none py-2 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5 border border-zinc-950/5 bg-yellow-500 text-white hover:bg-yellow-600 transition-all duration-300 ease-in-out active:scale-[0.93]'
                   >
                     get started free
@@ -129,54 +129,14 @@ const Home = () => {
                     </div>
                   </div>
 
-                  <div className="border border-zinc-950/5 rounded-xl p-5 flex flex-col gap-4 shadow-md">
-                    <div className="flex flex-col gap-2">
-                      <div className="">
-                        <span className="rounded-2xl p-1 bg-zinc-950/5">02</span>
-                      </div>
-                      <h3 className="text-black/75 text-start text-[18px] font-medium line-clamp-1">Share your link with your community</h3>
-                      <p className="max-w-lg text-black/60 font-light text-sm line-clamp-3">
-                        Copy your unique link and share it on social media, your website, or directly via message.
-                      </p>
-                    </div>
-                    <div className="">
-                      <img src={about1} alt="" width={300} height={100} />
-                    </div>
-                  </div>
+                  {/* Other grid items would go here */}
 
-                  <div className="border border-zinc-950/5 rounded-xl p-5 flex flex-col gap-4 shadow-md">
-                    <div className="flex flex-col gap-2">
-                      <div className="">
-                        <span className="rounded-2xl p-1 bg-zinc-950/5">03</span>
-                      </div>
-                      <h3 className="text-black/75 text-start text-[18px] font-medium line-clamp-1">Receive support and grow your ideas</h3>
-                      <p className="max-w-lg text-black/60 font-light text-sm line-clamp-3">
-                        Every contribution brings you closer to your goal.
-Turn your creative energy into real impact thanks to the generosity of your community 💛.
-                      </p>
-                    </div>
-                    <div className="">
-                      <img src={about1} alt="" width={300} height={100} />
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
           </section>
-
-          {/* DECORATIVE BAR */}
-          <div>
-            <div className="bg-zinc-950/5 relative mx-auto flex h-px w-full max-w-lg items-center justify-center gap-2 mt-15 mb-15">
-              <div className="bg-zinc-950/5 relative mx-auto flex h-px w-full max-w-lg items-center justify-center gap-2">
-                <div className="rounded-[1px] bg-zinc-100 border border-zinc-950/5 absolute z-50 top-0 left-0 -translate-x-1/2 -translate-y-1/2 size-[10px]"></div>
-                <div className="rounded-[1px] bg-zinc-100 border border-zinc-950/5 absolute z-50 -bottom-[5px] -right-[5px] size-[10px]"></div>
-              </div>
-            </div>
-          </div>
         </main>
       </div>
-
-      <Footer />
     </>
   );
 };
