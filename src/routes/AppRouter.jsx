@@ -10,13 +10,6 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import Profile from "../pages/Profile";
 import GitHubCallback from "../components/GitHubCallback";
 import NotFound from "../pages/NotFound";
-import Privacy from "../pages/Privacy";
-import { FALLBACK_LANGUAGE, useI18n } from "../context/I18nContext";
-
-const DefaultLanguageRedirect = () => {
-  const { language } = useI18n();
-  return <Navigate to={`/${language ?? FALLBACK_LANGUAGE}`} replace />;
-};
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -28,11 +21,12 @@ const AppRoutes = () => {
       <Route path=":language" element={<LanguageLayout />}>
         {/* Routes publiques */}
         <Route element={<PublicRoutes />}>
-          <Route index element={<Home />} />
-          <Route path="contributors" element={<Contributors />} />
-          <Route path="login" element={<Login />} />
-          <Route path="auth/github/callback" element={<GitHubCallback />} />
-          <Route path="register" element={<Register />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/contributors" element={<Contributors />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/auth/github/callback" element={<GitHubCallback />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
 
         <Route path="privacy" element={<Privacy />} />
