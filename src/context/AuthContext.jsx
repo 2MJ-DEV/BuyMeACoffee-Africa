@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useState, useCallback } from "react";
 
 const AuthContext = createContext();
 
@@ -12,27 +12,100 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-  // Données fictives pour l'instant
-  const [user, setUser] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const STORAGE_KEYS = useMemo(
+    () => ({
+      user: "buymeacoffee.africa.auth.user",
+      token: "buymeacoffee.africa.auth.token",
+    }),
+    []
+  );
 
-  const login = (userData) => {
-    // Simulation de connexion avec données fictives
-    setUser(userData);
-    setIsAuthenticated(true);
-  };
+  const readStoredToken = useCallback(() => {
+    if (typeof window === "undefined") {
+      return null;
+    }
+    try {
+      return window.localStorage.getItem(STORAGE_KEYS.token);
+    } catch (error) {
+      console.warn("Unable to read auth token from storage:", error);
+      return null;
+    }
+  }, [STORAGE_KEYS.token]);
 
-  const logout = () => {
+  const readStoredUser = useCallback(() => {
+    if (typeof window === "undefined") {
+      return null;
+    }
+    try {
+      const raw = window.localStorage.getItem(STORAGE_KEYS.user);
+      return raw ? JSON.parse(raw) : null;
+    } catch (error) {
+      console.warn("Unable to parse auth user from storage:", error);
+      return null;
+    }
+  }, [STORAGE_KEYS.user]);
+
+  const [user, setUser] = useState(() => readStoredUser());
+  const [token, setToken] = useState(() => readStoredToken());
+  const [isAuthenticated, setIsAuthenticated] = useState(() => Boolean(readStoredUser() || readStoredToken()));
+
+  useEffect(() => {
+    setIsAuthenticated(Boolean(user || token));
+  }, [token, user]);
+
+  const login = useCallback(
+    (authPayload) => {
+      const authUser = authPayload?.user ?? null;
+      const authToken = authPayload?.token ?? null;
+
+      if (typeof window !== "undefined") {
+        try {
+          if (authUser) {
+            window.localStorage.setItem(STORAGE_KEYS.user, JSON.stringify(authUser));
+          } else {
+            window.localStorage.removeItem(STORAGE_KEYS.user);
+          }
+
+          if (authToken) {
+            window.localStorage.setItem(STORAGE_KEYS.token, authToken);
+          } else {
+            window.localStorage.removeItem(STORAGE_KEYS.token);
+          }
+        } catch (error) {
+          console.warn("Unable to persist auth payload:", error);
+        }
+      }
+
+      setUser(authUser);
+      setToken(authToken);
+    },
+    [STORAGE_KEYS.token, STORAGE_KEYS.user]
+  );
+
+  const logout = useCallback(() => {
+    if (typeof window !== "undefined") {
+      try {
+        window.localStorage.removeItem(STORAGE_KEYS.user);
+        window.localStorage.removeItem(STORAGE_KEYS.token);
+      } catch (error) {
+        console.warn("Unable to clear auth storage:", error);
+      }
+    }
+
     setUser(null);
-    setIsAuthenticated(false);
-  };
+    setToken(null);
+  }, [STORAGE_KEYS.token, STORAGE_KEYS.user]);
 
-  const value = {
-    user,
-    isAuthenticated,
-    login,
-    logout,
-  };
+  const value = useMemo(
+    () => ({
+      user,
+      token,
+      isAuthenticated,
+      login,
+      logout,
+    }),
+    [isAuthenticated, login, logout, token, user]
+  );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

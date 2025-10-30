@@ -103,6 +103,17 @@
     "github": "Continuer avec GitHub",
     "google": "Continuer avec Google",
     "divider": "ou connectez-vous avec",
+    "form": {
+      "withEmail": "ou connectez-vous avec votre e-mail",
+      "emailLabel": "Adresse e-mail",
+      "passwordLabel": "Mot de passe",
+      "submit": "Se connecter avec l'e-mail",
+      "loading": "Connexion en cours...",
+      "errors": {
+        "missingFields": "Renseignez votre e-mail et votre mot de passe.",
+        "generic": "Impossible de vous connecter. Réessayez."
+      }
+    },
     "cta": {
       "question": "Pas encore de compte ?",
       "action": "Inscrivez-vous"
@@ -114,6 +125,19 @@
     "github": "Continuer avec GitHub",
     "google": "Continuer avec Google",
     "divider": "ou connectez-vous avec",
+    "form": {
+      "withEmail": "ou créez un compte avec votre e-mail",
+      "nameLabel": "Nom complet",
+      "namePlaceholder": "Ex. Marie Dupont",
+      "emailLabel": "Adresse e-mail",
+      "passwordLabel": "Mot de passe",
+      "submit": "Créer un compte avec l'e-mail",
+      "loading": "Création de votre compte...",
+      "errors": {
+        "missingFields": "Le nom, l'e-mail et le mot de passe sont requis.",
+        "generic": "Impossible de finaliser l'inscription. Réessayez."
+      }
+    },
     "cta": {
       "question": "Vous avez déjà un compte ?",
       "action": "Connectez-vous"
@@ -150,7 +174,10 @@
     "notSet": "Non défini"
   },
   "auth": {
-    "githubCallback": "Traitement de la connexion GitHub..."
+    "githubCallback": "Traitement de la connexion GitHub...",
+    "errors": {
+      "providerNotConfigured": "La connexion {provider} n'est pas encore configurée."
+    }
   },
   "dates": {
     "yearlyCopyright": "© {year} BuyMeACoffee-Africa. Tous droits réservés."

@@ -9,10 +9,11 @@ datasource db {
 
 model User {
   id        Int       @id @default(autoincrement())
-  name      String
-  email     String    @unique
-  password  String
+  name      String?
+  email     String?   @unique
+  password  String?
   role      String    @default("user")
+  accounts  Account[]
   donations Donation[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -24,4 +25,19 @@ model Donation {
   user      User     @relation(fields: [userId], references: [id])
   userId    Int
   createdAt DateTime @default(now())
+}
+
+model Account {
+  id                 Int      @id @default(autoincrement())
+  provider           String
+  providerAccountId  String
+  email              String?
+  avatarUrl          String?
+  user               User     @relation(fields: [userId], references: [id])
+  userId             Int
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
 }

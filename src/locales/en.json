@@ -103,6 +103,17 @@
     "github": "Continue with GitHub",
     "google": "Continue with Google",
     "divider": "or connect with",
+    "form": {
+      "withEmail": "or sign in with email",
+      "emailLabel": "Email address",
+      "passwordLabel": "Password",
+      "submit": "Sign in with email",
+      "loading": "Signing you in...",
+      "errors": {
+        "missingFields": "Enter both email and password.",
+        "generic": "Unable to sign in. Please try again."
+      }
+    },
     "cta": {
       "question": "Don’t have an account?",
       "action": "Sign up"
@@ -114,6 +125,19 @@
     "github": "Continue with GitHub",
     "google": "Continue with Google",
     "divider": "or connect with",
+    "form": {
+      "withEmail": "or create an account with email",
+      "nameLabel": "Full name",
+      "namePlaceholder": "Jane Doe",
+      "emailLabel": "Email address",
+      "passwordLabel": "Password",
+      "submit": "Create account with email",
+      "loading": "Creating your account...",
+      "errors": {
+        "missingFields": "Name, email, and password are required.",
+        "generic": "Unable to complete registration. Please try again."
+      }
+    },
     "cta": {
       "question": "Already have an account?",
       "action": "Log in"
@@ -150,7 +174,10 @@
     "notSet": "Not set"
   },
   "auth": {
-    "githubCallback": "Processing GitHub login..."
+    "githubCallback": "Processing GitHub login...",
+    "errors": {
+      "providerNotConfigured": "{provider} sign-in is not configured yet."
+    }
   },
   "dates": {
     "yearlyCopyright": "© {year} BuyMeACoffee-Africa. All rights reserved."
