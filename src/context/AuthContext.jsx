@@ -45,9 +45,11 @@ export const AuthProvider = ({ children }) => {
     }
   }, [STORAGE_KEYS.user]);
 
-  const [user, setUser] = useState(() => readStoredUser());
-  const [token, setToken] = useState(() => readStoredToken());
-  const [isAuthenticated, setIsAuthenticated] = useState(() => Boolean(readStoredUser() || readStoredToken()));
+  const initialUser = readStoredUser();
+  const initialToken = readStoredToken();
+  const [user, setUser] = useState(initialUser);
+  const [token, setToken] = useState(initialToken);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => Boolean(initialUser || initialToken));
 
   useEffect(() => {
     setIsAuthenticated(Boolean(user || token));
