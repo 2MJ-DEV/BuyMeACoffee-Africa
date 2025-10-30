@@ -82,19 +82,28 @@ const Register = () => {
     const sanitizedEmail = formState.email.trim().toLowerCase();
 
     try {
-      await apiPost("/api/auth/register", {
+      const registerResponse = await apiPost("/api/auth/register", {
         name: formState.name.trim(),
         email: sanitizedEmail,
         password: formState.password,
       });
 
-      const authPayload = await apiPost("/api/auth/login", {
-        email: sanitizedEmail,
-        password: formState.password,
-      });
+      // Check for success indicator in registerResponse
+      if (registerResponse && (registerResponse.success === true || registerResponse.user)) {
+        const authPayload = await apiPost("/api/auth/login", {
+          email: sanitizedEmail,
+          password: formState.password,
+        });
 
-      setAuthState(authPayload);
-      navigate(withLanguagePrefix("/dashboard"), { replace: true });
+        setAuthState(authPayload);
+        navigate(withLanguagePrefix("/dashboard"), { replace: true });
+      } else {
+        // Registration failed, show error
+        setError(
+          registerResponse?.message ||
+          t("register.form.errors.registrationFailed")
+        );
+      }
     } catch (requestError) {
       const message = requestError?.message ?? t("register.form.errors.generic");
       setError(message);
