@@ -4,6 +4,9 @@ import { prisma } from "../lib/prisma.js";
 
 const SALT_ROUNDS = Number.parseInt(process.env.BCRYPT_SALT_ROUNDS || "10", 10);
 const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET || JWT_SECRET.trim() === "") {
+  throw new Error("JWT_SECRET environment variable must be set");
+}
 const OAUTH_PROVIDERS = new Set(["google", "github"]);
 
 const ACCOUNT_SELECT = {
