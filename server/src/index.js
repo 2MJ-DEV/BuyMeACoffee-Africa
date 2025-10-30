@@ -15,8 +15,16 @@ import {
 const app = express();
 
 const rawAllowedOrigins = process.env.CORS_ORIGIN?.split(",").map((origin) => origin.trim()).filter(Boolean) ?? [];
+let corsOrigin;
+if (rawAllowedOrigins.length) {
+  corsOrigin = rawAllowedOrigins;
+} else if (process.env.NODE_ENV === "production") {
+  throw new Error("CORS_ORIGIN must be set in production to a list of allowed origins.");
+} else {
+  corsOrigin = ["http://localhost:3000"];
+}
 const corsOptions = {
-  origin: rawAllowedOrigins.length ? rawAllowedOrigins : true,
+  origin: corsOrigin,
   credentials: true,
 };
 
