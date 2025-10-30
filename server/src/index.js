@@ -48,11 +48,24 @@ async function startServer() {
 
     const shutdown = async (signal) => {
       console.log(`Received ${signal}. Closing server...`);
-      await disconnectPrisma();
-      server.close(() => {
-        console.log("Server closed. Goodbye!");
-        process.exit(0);
-      });
+      // Set a timeout to force exit after 10 seconds
+      const FORCE_EXIT_TIMEOUT = 10000;
+      const forceExitTimer = setTimeout(() => {
+        console.error("Shutdown did not complete in time. Forcing exit.");
+        process.exit(1);
+      }, FORCE_EXIT_TIMEOUT);
+      try {
+        await disconnectPrisma();
+        server.close(() => {
+          clearTimeout(forceExitTimer);
+          console.log("Server closed. Goodbye!");
+          process.exit(0);
+        });
+      } catch (err) {
+        clearTimeout(forceExitTimer);
+        console.error("Error during shutdown:", err);
+        process.exit(1);
+      }
     };
 
     process.on("SIGINT", () => {
