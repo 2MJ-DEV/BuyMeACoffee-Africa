@@ -69,7 +69,7 @@ const Login = () => {
     event.preventDefault();
     setError(null);
 
-    if (!formState.email || !formState.password) {
+    if (!formState.email.trim() || !formState.password) {
       setError(t("login.form.errors.missingFields"));
       return;
     }
