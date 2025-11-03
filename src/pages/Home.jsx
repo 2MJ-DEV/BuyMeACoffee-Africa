@@ -2,7 +2,9 @@ import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import SEO from '../components/SEO'
 import { FALLBACK_LANGUAGE, useI18n } from '../context/I18nContext'
+import { getPageSEO } from '../utils/seo'
 import Preview from '/Preview.png'
 import { Drama } from 'lucide-react'
 import about1 from '/About1.png'
@@ -13,6 +15,7 @@ import BackToTop from '../components/BackToTop'
 const Home = () => {
 	const { t, language } = useI18n()
 	const activeLanguage = language ?? FALLBACK_LANGUAGE
+	const seoData = getPageSEO('home', activeLanguage)
 
 
 	const withLanguagePrefix = useMemo(
@@ -51,6 +54,7 @@ const Home = () => {
 
 	return (
 		<>
+			<SEO {...seoData} />
 			<Navbar />
 
 			<main className='page-shell relative flex min-h-screen flex-col pt-36'>

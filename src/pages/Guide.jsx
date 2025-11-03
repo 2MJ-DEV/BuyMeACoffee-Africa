@@ -1,15 +1,19 @@
 import Navbar from '../components/Navbar'; // Assuming path is correct
 import Footer from '../components/Footer'; // Assuming path is correct
-import { useI18n } from '../context/I18nContext';
+import SEO from '../components/SEO';
+import { useI18n, FALLBACK_LANGUAGE } from '../context/I18nContext';
+import { getPageSEO } from '../utils/seo';
 import GuideSidebar from '../components/GuideSidebar'; // Import the new sidebar
 import BackToTop from '../components/BackToTop';
 
 const Guide = () => {
-  const { t } = useI18n();
-
+  const { t, language } = useI18n();
+  const activeLanguage = language ?? FALLBACK_LANGUAGE;
+  const seoData = getPageSEO('guide', activeLanguage);
 
   return (
     <>
+      <SEO {...seoData} />
       <Navbar />
       {/* Changed container: Use flex, wider max-width, gap */}
       <main id="guide-top" className="page-shell pt-32 pb-24 scroll-mt-20">
