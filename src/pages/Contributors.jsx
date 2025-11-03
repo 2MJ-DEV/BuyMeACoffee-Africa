@@ -2,7 +2,9 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import SEO from '../components/SEO'
 import { FALLBACK_LANGUAGE, useI18n } from '../context/I18nContext'
+import { getPageSEO } from '../utils/seo'
 import BackToTop from '../components/BackToTop'
 
 const Contributors = () => {
@@ -13,6 +15,7 @@ const Contributors = () => {
 	const { t, language } = useI18n()
 	const navigate = useNavigate()
 	const activeLanguage = language ?? FALLBACK_LANGUAGE
+	const seoData = getPageSEO('contributors', activeLanguage)
 
 	useEffect(() => {
 		const fetchContributors = async () => {
@@ -120,6 +123,7 @@ const Contributors = () => {
 
 	return (
 		<>
+			<SEO {...seoData} />
 			<Navbar />
 			<main className='page-shell bg-gradient-to-b from-[rgba(245,237,230,0.96)] via-[rgba(200,159,133,0.28)] to-[rgba(245,237,230,0.96)] pt-32 pb-24'>
 				<section className='mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-6 text-center'>

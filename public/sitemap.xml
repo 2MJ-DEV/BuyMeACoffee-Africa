@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  MAINTENANCE NOTE: 
+  Update the <lastmod> dates below whenever significant changes are made to the respective pages.
+  For automation, consider using a sitemap generator package like 'sitemap' or 'next-sitemap'.
+  Current lastmod date: 2025-11-03
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://buymeacoffeeafrica.vercel.app/en" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://buymeacoffeeafrica.vercel.app/fr" />
+  </url>
+  
+  <!-- English Pages -->
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/en</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/en/contributors</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/en/login</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/en/register</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/en/guide</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/en/privacy</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/en/terms</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/en/license</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- French Pages -->
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/fr</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/fr/contributors</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/fr/login</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/fr/register</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/fr/guide</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/fr/privacy</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/fr/terms</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://buymeacoffeeafrica.vercel.app/fr/license</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>

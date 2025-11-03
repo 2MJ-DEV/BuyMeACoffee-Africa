@@ -1,15 +1,20 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useI18n } from "../context/I18nContext";
+import SEO from "../components/SEO";
+import { useI18n, FALLBACK_LANGUAGE } from "../context/I18nContext";
+import { getPageSEO } from "../utils/seo";
 import BackToTop from "../components/BackToTop";
 import TermsSidebar from "../components/TermsSidebar";
 
 const TermsOfService = () => {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
+  const activeLanguage = language ?? FALLBACK_LANGUAGE;
+  const seoData = getPageSEO('terms', activeLanguage);
 
   return (
     <>
+      <SEO {...seoData} />
       <Navbar />
       <main id="terms-top" className="page-shell pt-32 pb-24 scroll-mt-20">
         <div className="flex w-full max-w-7xl px-20 gap-32 relative">

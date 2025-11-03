@@ -1,0 +1,11 @@
+# robots.txt for BuyMeACoffee-Africa
+User-agent: *
+Allow: /
+
+# Disallow private routes
+Disallow: /*/dashboard
+Disallow: /*/profile
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://buymeacoffeeafrica.vercel.app/sitemap.xml

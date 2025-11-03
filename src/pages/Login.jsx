@@ -2,9 +2,11 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithubAlt } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa6";
+import SEO from "../components/SEO";
 import { FALLBACK_LANGUAGE, useI18n } from "../context/I18nContext";
 import { useAuth } from "../context/AuthContext";
 import { apiPost } from "../lib/apiClient";
+import { getPageSEO } from "../utils/seo";
 
 const clientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
 const redirectUri = import.meta.env.VITE_GITHUB_REDIRECT_URI;
@@ -12,6 +14,7 @@ const redirectUri = import.meta.env.VITE_GITHUB_REDIRECT_URI;
 const Login = () => {
   const { t, language } = useI18n();
   const activeLanguage = language ?? FALLBACK_LANGUAGE;
+  const seoData = getPageSEO('login', activeLanguage);
   const navigate = useNavigate();
   const location = useLocation();
   const { login: persistAuth, isAuthenticated } = useAuth();
@@ -90,15 +93,17 @@ const Login = () => {
   }, [location.pathname, location.state, navigate]);
 
   return (
-    <div className="page-shell relative min-h-screen bg-gradient-to-b from-[rgba(245,237,230,0.94)] via-[rgba(200,159,133,0.25)] to-[rgba(245,237,230,0.94)] px-6 py-20">
-      <div className="absolute inset-x-0 top-0 -z-10 h-56 bg-gradient-to-b from-[rgba(245,237,230,0.95)] via-transparent to-transparent" />
-      <div className="mx-auto flex w-full max-w-md flex-col gap-8 text-center">
-        <Link
-          to={withLanguagePrefix("/")}
-          className="self-start text-sm font-medium text-[var(--color-coffee)] transition hover:text-[var(--color-espresso)]"
-        >
-          {t("common.actions.backToHome")}
-        </Link>
+    <>
+      <SEO {...seoData} />
+      <div className="page-shell relative min-h-screen bg-gradient-to-b from-[rgba(245,237,230,0.94)] via-[rgba(200,159,133,0.25)] to-[rgba(245,237,230,0.94)] px-6 py-20">
+        <div className="absolute inset-x-0 top-0 -z-10 h-56 bg-gradient-to-b from-[rgba(245,237,230,0.95)] via-transparent to-transparent" />
+        <div className="mx-auto flex w-full max-w-md flex-col gap-8 text-center">
+          <Link
+            to={withLanguagePrefix("/")}
+            className="self-start text-sm font-medium text-[var(--color-coffee)] transition hover:text-[var(--color-espresso)]"
+          >
+            {t("common.actions.backToHome")}
+          </Link>
 
         <div className="surface-card rounded-3xl p-10">
           <h1 className="font-heading text-3xl font-semibold text-[var(--text-primary)]">{t("login.title")}</h1>
@@ -184,6 +189,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

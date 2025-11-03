@@ -1,15 +1,20 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useI18n } from "../context/I18nContext";
+import SEO from "../components/SEO";
+import { useI18n, FALLBACK_LANGUAGE } from "../context/I18nContext";
+import { getPageSEO } from "../utils/seo";
 import BackToTop from "../components/BackToTop";
 
 const License = () => {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
+  const activeLanguage = language ?? FALLBACK_LANGUAGE;
+  const seoData = getPageSEO('license', activeLanguage);
   const currentYear = new Date().getFullYear();
 
   return (
     <>
+      <SEO {...seoData} />
       <Navbar />
       <div className="min-h-screen bg-white">
         <div className="sm:w-[80%] md:w-[90%] lg:w-[70%] xl:w-[80%] 2xl:w-[55%] mx-auto px-6 py-24">
