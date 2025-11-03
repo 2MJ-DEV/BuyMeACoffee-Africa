@@ -1,5 +1,9 @@
 import { Helmet } from "react-helmet-async";
 
+// Base URL constant for consistency
+const BASE_URL = "https://buymeacoffeeafrica.vercel.app";
+const DEFAULT_IMAGE = `${BASE_URL}/seo.png`;
+
 /**
  * SEO Component - Manages page-specific meta tags for SEO and social sharing
  * @param {Object} props - Component props
@@ -15,8 +19,8 @@ const SEO = ({
   title = "BuyMeACoffee-Africa — Support African talent",
   description = "BuyMeACoffee-Africa — Support African talent and bring their ideas to life.",
   keywords = "Africa, creators, support, donations, BuyMeACoffee, African talent",
-  image = "https://buymeacoffeeafrica.vercel.app/seo.png",
-  url = "https://buymeacoffeeafrica.vercel.app/",
+  image = DEFAULT_IMAGE,
+  url = BASE_URL,
   type = "website",
   locale = "en_US",
 }) => {

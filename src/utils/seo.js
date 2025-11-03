@@ -12,6 +12,12 @@ const DEFAULT_IMAGE = `${BASE_URL}/seo.png`;
  * @returns {Object} SEO data object
  */
 export const getPageSEO = (page, language = "en") => {
+  // Warn developers if using an invalid page key
+  const validPages = ['home', 'contributors', 'login', 'register', 'guide', 'dashboard', 'profile', 'privacy', 'terms', 'license'];
+  if (!validPages.includes(page)) {
+    console.warn(`[SEO] Invalid page key "${page}". Falling back to home page SEO data. Valid pages: ${validPages.join(', ')}`);
+  }
+
   const seoData = {
     home: {
       en: {
