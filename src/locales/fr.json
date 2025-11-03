@@ -298,6 +298,148 @@
       "moreInfo": "pour plus d'informations."
     }
   },
+  "terms": {
+    "sidebar": {
+      "onThisPage": "Sur cette page",
+      "introduction": "Introduction",
+      "acceptance": "Acceptation des conditions",
+      "eligibility": "Éligibilité",
+      "accounts": "Comptes utilisateurs",
+      "donations": "Dons et paiements",
+      "contentRules": "Règles de contenu",
+      "intellectualProperty": "Propriété intellectuelle",
+      "termination": "Résiliation",
+      "disclaimers": "Avertissements",
+      "limitationLiability": "Limitation de responsabilité",
+      "changes": "Modifications des conditions",
+      "contactUs": "Nous contacter"
+    },
+    "header": {
+      "title": "Conditions d'utilisation",
+      "effectiveDate": "Date d'entrée en vigueur : 1er janvier 2025",
+      "lastUpdated": "Dernière mise à jour : 1er janvier 2025"
+    },
+    "introduction": {
+      "title": "Introduction",
+      "p1": "Bienvenue sur BuyMeACoffee-Africa ! Ces Conditions d'utilisation (« Conditions ») régissent votre utilisation de notre plateforme et de nos services. En accédant ou en utilisant BuyMeACoffee-Africa, vous acceptez d'être lié par ces Conditions.",
+      "p2": "Veuillez lire attentivement ces Conditions avant d'utiliser notre plateforme. Si vous n'acceptez pas ces Conditions, vous ne pouvez pas utiliser nos services."
+    },
+    "acceptance": {
+      "title": "Acceptation des conditions",
+      "p1": "En créant un compte, en accédant ou en utilisant BuyMeACoffee-Africa de quelque manière que ce soit, vous reconnaissez avoir lu, compris et accepté d'être lié par ces Conditions et notre Politique de confidentialité.",
+      "p2": "Nous nous réservons le droit de modifier ces Conditions à tout moment. Votre utilisation continue de la plateforme après la publication des modifications constitue votre acceptation des Conditions modifiées."
+    },
+    "eligibility": {
+      "title": "Éligibilité",
+      "intro": "Pour utiliser BuyMeACoffee-Africa, vous devez :",
+      "item1": "Avoir au moins 18 ans (ou l'âge de la majorité dans votre juridiction)",
+      "item2": "Avoir la capacité légale de conclure des accords contraignants",
+      "item3": "Ne pas être interdit d'utiliser le service en vertu des lois applicables",
+      "item4": "Fournir des informations exactes et complètes lors de l'inscription",
+      "p1": "En utilisant notre plateforme, vous déclarez et garantissez que vous remplissez ces conditions d'éligibilité."
+    },
+    "accounts": {
+      "title": "Comptes utilisateurs",
+      "responsibility": {
+        "title": "Responsabilité du compte",
+        "intro": "Lorsque vous créez un compte, vous acceptez de :",
+        "item1": "Fournir des informations exactes, actuelles et complètes",
+        "item2": "Maintenir la sécurité des identifiants de votre compte",
+        "item3": "Nous informer immédiatement de toute utilisation non autorisée de votre compte",
+        "item4": "Être responsable de toutes les activités sous votre compte"
+      },
+      "prohibited": {
+        "title": "Activités de compte interdites",
+        "intro": "Vous ne pouvez pas :",
+        "item1": "Créer plusieurs comptes pour contourner les restrictions",
+        "item2": "Partager votre compte avec d'autres",
+        "item3": "Usurper l'identité d'une autre personne ou entité",
+        "item4": "Utiliser des outils automatisés pour créer des comptes"
+      }
+    },
+    "donations": {
+      "title": "Dons et paiements",
+      "creators": {
+        "title": "Pour les créateurs",
+        "item1": "<strong>Traitement des paiements :</strong> Les dons sont traités via des fournisseurs de paiement tiers (Mobile Money, etc.)",
+        "item2": "<strong>Frais :</strong> Nous pouvons facturer des frais de plateforme sur les transactions comme indiqué au moment du paiement",
+        "item3": "<strong>Paiements :</strong> Vous êtes responsable de fournir des informations de paiement exactes pour recevoir les dons",
+        "item4": "<strong>Taxes :</strong> Vous êtes responsable de toutes les taxes applicables sur les fonds reçus via notre plateforme"
+      },
+      "supporters": {
+        "title": "Pour les donateurs",
+        "item1": "<strong>Dons :</strong> Tous les dons sont volontaires et définitifs une fois traités",
+        "item2": "<strong>Pas de remboursement :</strong> Les dons ne sont généralement pas remboursables, sauf si la loi l'exige ou en cas de fraude",
+        "item3": "<strong>Modes de paiement :</strong> Vous acceptez de fournir des informations de paiement valides et d'autoriser les frais",
+        "item4": "<strong>Devise :</strong> Les transactions peuvent être traitées dans diverses devises en fonction de votre emplacement"
+      }
+    },
+    "contentRules": {
+      "title": "Règles de contenu",
+      "ownership": {
+        "title": "Propriété du contenu",
+        "p1": "Vous conservez la propriété de tout le contenu que vous publiez sur BuyMeACoffee-Africa. Cependant, en publiant du contenu, vous nous accordez une licence mondiale, non exclusive et libre de droits pour utiliser, afficher et distribuer votre contenu sur notre plateforme."
+      },
+      "prohibited": {
+        "title": "Contenu interdit",
+        "intro": "Vous ne pouvez pas publier de contenu qui :",
+        "item1": "Est illégal, nuisible, menaçant, abusif ou harcelant",
+        "item2": "Enfreint les droits de propriété intellectuelle",
+        "item3": "Contient des logiciels malveillants, des virus ou du code nuisible",
+        "item4": "Viole les droits à la vie privée ou à la confidentialité",
+        "item5": "Est faux, trompeur ou frauduleux",
+        "item6": "Promeut la violence, la discrimination ou la haine"
+      }
+    },
+    "intellectualProperty": {
+      "title": "Propriété intellectuelle",
+      "platform": {
+        "title": "Droits de la plateforme",
+        "p1": "BuyMeACoffee-Africa et son contenu, ses fonctionnalités et ses fonctionnalités originaux nous appartiennent et sont protégés par les lois internationales sur le droit d'auteur, les marques, les brevets, les secrets commerciaux et autres lois sur la propriété intellectuelle."
+      },
+      "userContent": {
+        "title": "Droits sur le contenu utilisateur",
+        "p1": "Vous êtes seul responsable du contenu que vous publiez. Vous déclarez et garantissez que vous disposez de tous les droits nécessaires sur votre contenu et que votre contenu ne viole aucun droit de tiers."
+      }
+    },
+    "termination": {
+      "title": "Résiliation",
+      "byUser": {
+        "title": "Résiliation par l'utilisateur",
+        "p1": "Vous pouvez résilier votre compte à tout moment en nous contactant ou via les paramètres de votre compte. Dès la résiliation, votre droit d'utiliser la plateforme cessera immédiatement."
+      },
+      "byPlatform": {
+        "title": "Résiliation par la plateforme",
+        "intro": "Nous nous réservons le droit de suspendre ou de résilier votre compte si :",
+        "item1": "Vous violez ces Conditions ou nos politiques",
+        "item2": "Vous vous engagez dans des activités frauduleuses ou illégales",
+        "item3": "Votre compte est inactif pendant une période prolongée",
+        "item4": "Requis par la loi ou les autorités réglementaires"
+      }
+    },
+    "disclaimers": {
+      "title": "Avertissements",
+      "p1": "BuyMeACoffee-Africa est fourni « tel quel » et « tel que disponible » sans garanties d'aucune sorte, expresses ou implicites, y compris, mais sans s'y limiter, les garanties de qualité marchande, d'adéquation à un usage particulier ou de non-violation.",
+      "p2": "Nous ne garantissons pas que la plateforme sera ininterrompue, sécurisée ou sans erreur. Nous ne sommes pas responsables du comportement des créateurs ou des donateurs sur notre plateforme."
+    },
+    "limitationLiability": {
+      "title": "Limitation de responsabilité",
+      "p1": "Dans toute la mesure permise par la loi, BuyMeACoffee-Africa et ses affiliés ne seront pas responsables des dommages indirects, accessoires, spéciaux, consécutifs ou punitifs, y compris la perte de profits, de données ou de clientèle, découlant de votre utilisation de la plateforme.",
+      "p2": "Notre responsabilité totale envers vous pour toutes les réclamations découlant de votre utilisation de la plateforme ne dépassera pas le montant que vous nous avez payé au cours des 12 mois précédant la réclamation, ou 100 $, selon le montant le plus élevé."
+    },
+    "changes": {
+      "title": "Modifications des conditions",
+      "p1": "Nous nous réservons le droit de modifier ces Conditions à tout moment. Lorsque nous apportons des modifications importantes, nous vous en informerons par e-mail ou par un avis visible sur notre plateforme.",
+      "p2": "Votre utilisation continue de BuyMeACoffee-Africa après l'entrée en vigueur des modifications constitue votre acceptation des nouvelles Conditions."
+    },
+    "contactUs": {
+      "title": "Nous contacter",
+      "intro": "Si vous avez des questions concernant ces Conditions d'utilisation, veuillez nous contacter :",
+      "email": "<strong>Email :</strong> <a href=\"mailto:legal@buymeacoffee-africa.com\" className=\"text-[var(--color-coffee)] hover:text-[var(--color-espresso)] hover:underline\">legal@buymeacoffee-africa.com</a>",
+      "support": "<strong>Support :</strong> <a href=\"mailto:support@buymeacoffee-africa.com\" className=\"text-[var(--color-coffee)] hover:text-[var(--color-espresso)] hover:underline\">support@buymeacoffee-africa.com</a>",
+      "github": "<strong>GitHub :</strong> <a href=\"https://github.com/2MJ-DEV/BuyMeACoffee-Africa\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-[var(--color-coffee)] hover:text-[var(--color-espresso)] hover:underline\">github.com/2MJ-DEV/BuyMeACoffee-Africa</a>"
+    }
+  },
   "privacy": {
     "sidebar": {
       "onThisPage": "Sur cette page",
