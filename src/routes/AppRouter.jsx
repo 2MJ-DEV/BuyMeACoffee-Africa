@@ -12,6 +12,7 @@ import GitHubCallback from "../components/GitHubCallback";
 import NotFound from "../pages/NotFound";
 import Privacy from "../pages/Privacy";
 import License from "../pages/License";
+import TermsOfService from "../pages/TermsOfService";
 import { FALLBACK_LANGUAGE, useI18n } from "../context/I18nContext";
 import Guide from "../pages/Guide";
 
@@ -39,6 +40,7 @@ const AppRoutes = () => {
         </Route>
 
         <Route path="privacy" element={<Privacy />} />
+        <Route path="terms" element={<TermsOfService />} />
         <Route path="license" element={<License />} />
 
         {/* Routes privées */}
