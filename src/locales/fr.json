@@ -150,23 +150,58 @@
     "menu": "Menu",
     "links": {
       "overview": "Vue d'ensemble",
+      "profile": "Profil",
+      "donations": "Dons",
       "settings": "Paramètres"
     },
     "overview": {
       "title": "Vue d'ensemble",
-      "description": "Obtenez un aperçu rapide de votre compte."
+      "welcome": "Bienvenue",
+      "description": "Obtenez un aperçu rapide de votre compte.",
+      "stats": {
+        "totalDonations": "Total de Cafés",
+        "totalAmount": "Gains Totaux",
+        "supporters": "Supporteurs",
+        "growth": "Croissance Mensuelle"
+      },
+      "recentActivity": "Activité Récente",
+      "noActivity": "Aucune activité récente à afficher."
     },
     "donations": {
-      "title": "Dons",
-      "description": "Gérez vos dons ici."
+      "title": "Historique des Dons",
+      "description": "Consultez tous les dons que vous avez reçus.",
+      "noDonations": "Aucun don pour le moment",
+      "noDonationsDesc": "Vous n'avez pas encore reçu de dons. Partagez votre profil pour commencer à recevoir du soutien !",
+      "anonymous": "Anonyme"
     },
     "profile": {
-      "title": "Profil",
-      "description": "Gérez les paramètres de votre profil ici."
+      "title": "Votre Profil",
+      "description": "Gérez les informations de votre profil créateur.",
+      "edit": "Modifier le Profil",
+      "cancel": "Annuler",
+      "save": "Enregistrer les Modifications",
+      "saving": "Enregistrement...",
+      "bio": "Bio",
+      "noBio": "Pas encore de bio. Ajoutez-en une pour parler de vous à vos supporteurs !",
+      "namePlaceholder": "Entrez votre nom",
+      "bioPlaceholder": "Parlez de vous à vos supporteurs...",
+      "updateSuccess": "Profil mis à jour avec succès !",
+      "updateError": "Échec de la mise à jour du profil. Veuillez réessayer."
     },
     "settings": {
       "title": "Paramètres",
-      "description": "Gérez les paramètres de votre compte ici."
+      "description": "Gérez vos paramètres de compte et de paiement.",
+      "paymentMethod": "Méthode de Paiement",
+      "mobileMoneyProvider": "Fournisseur Mobile Money",
+      "mobileMoneyNumber": "Numéro Mobile Money",
+      "mobileMoneyHelp": "C'est ici que vous recevrez vos dons.",
+      "accountSettings": "Paramètres du Compte",
+      "publicProfile": "Profil Public",
+      "publicProfileDesc": "Permettre aux autres de voir votre profil créateur",
+      "save": "Enregistrer les Paramètres",
+      "saving": "Enregistrement...",
+      "updateSuccess": "Paramètres mis à jour avec succès !",
+      "updateError": "Échec de la mise à jour des paramètres. Veuillez réessayer."
     }
   },
   "profile": {

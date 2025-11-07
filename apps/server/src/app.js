@@ -3,6 +3,9 @@ import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 import authRoutes from "./routes/authRoutes.js";
+import dashboardRoutes from "./routes/dashboardRoutes.js";
+import donationRoutes from "./routes/donationRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import { errorHandler, notFoundHandler } from "./middleware/errorHandler.js";
 import { getPrisma } from "./lib/prisma.js";
 
@@ -28,6 +31,9 @@ app.get("/health", async (req, res, next) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/donations", donationRoutes);
+app.use("/api/user", userRoutes);
 
 app.use(notFoundHandler);
 app.use(errorHandler);

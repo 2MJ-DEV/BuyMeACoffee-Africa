@@ -150,23 +150,58 @@
     "menu": "Menu",
     "links": {
       "overview": "Overview",
+      "profile": "Profile",
+      "donations": "Donations",
       "settings": "Settings"
     },
     "overview": {
       "title": "Overview",
-      "description": "Get a quick overview of your account."
+      "welcome": "Welcome",
+      "description": "Get a quick overview of your account.",
+      "stats": {
+        "totalDonations": "Total Coffees",
+        "totalAmount": "Total Earnings",
+        "supporters": "Supporters",
+        "growth": "Monthly Growth"
+      },
+      "recentActivity": "Recent Activity",
+      "noActivity": "No recent activity to display."
     },
     "donations": {
-      "title": "Donations",
-      "description": "Manage your donations here."
+      "title": "Donation History",
+      "description": "View all donations you've received.",
+      "noDonations": "No donations yet",
+      "noDonationsDesc": "You haven't received any donations yet. Share your profile to start receiving support!",
+      "anonymous": "Anonymous"
     },
     "profile": {
-      "title": "Profile",
-      "description": "Manage your profile settings here."
+      "title": "Your Profile",
+      "description": "Manage your creator profile information.",
+      "edit": "Edit Profile",
+      "cancel": "Cancel",
+      "save": "Save Changes",
+      "saving": "Saving...",
+      "bio": "Bio",
+      "noBio": "No bio yet. Add one to tell your supporters about yourself!",
+      "namePlaceholder": "Enter your name",
+      "bioPlaceholder": "Tell your supporters about yourself...",
+      "updateSuccess": "Profile updated successfully!",
+      "updateError": "Failed to update profile. Please try again."
     },
     "settings": {
       "title": "Settings",
-      "description": "Manage your account settings here."
+      "description": "Manage your account and payment settings.",
+      "paymentMethod": "Payment Method",
+      "mobileMoneyProvider": "Mobile Money Provider",
+      "mobileMoneyNumber": "Mobile Money Number",
+      "mobileMoneyHelp": "This is where you'll receive your donations.",
+      "accountSettings": "Account Settings",
+      "publicProfile": "Public Profile",
+      "publicProfileDesc": "Allow others to view your creator profile",
+      "save": "Save Settings",
+      "saving": "Saving...",
+      "updateSuccess": "Settings updated successfully!",
+      "updateError": "Failed to update settings. Please try again."
     }
   },
   "profile": {
