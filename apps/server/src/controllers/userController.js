@@ -8,6 +8,7 @@ const PUBLIC_USER_SELECT = {
   email: true,
   role: true,
   bio: true,
+  publicProfile: true,
   githubId: true,
   githubUsername: true,
   githubAvatarUrl: true,
@@ -18,11 +19,12 @@ const PUBLIC_USER_SELECT = {
 export async function updateProfile(req, res, next) {
   try {
     const userId = req.user.id;
-    const { name, bio } = req.body;
+    const { name, bio, publicProfile } = req.body;
 
     const updateData = {};
     if (name !== undefined) updateData.name = name.trim();
     if (bio !== undefined) updateData.bio = bio.trim();
+    if (publicProfile !== undefined) updateData.publicProfile = publicProfile;
 
     const user = await prisma.user.update({
       where: { id: userId },

@@ -7,10 +7,10 @@ export async function getDonations(req, res, next) {
     const userId = req.user.id;
 
     const donations = await prisma.donation.findMany({
-      where: { userId },
+      where: { creatorId: userId },
       orderBy: { createdAt: "desc" },
       include: {
-        user: {
+        supporter: {
           select: {
             name: true,
             email: true,
@@ -26,7 +26,7 @@ export async function getDonations(req, res, next) {
       createdAt: donation.createdAt,
       message: donation.message || null,
       supporter: {
-        name: donation.user?.name || "Anonymous",
+        name: donation.supporter?.name || "Anonymous",
       },
     }));
 

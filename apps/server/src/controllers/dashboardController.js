@@ -7,14 +7,17 @@ export async function getDashboardStats(req, res, next) {
     const userId = req.user.id;
 
     const donations = await prisma.donation.findMany({
-      where: { userId },
+      where: { creatorId: userId },
     });
 
     const totalDonations = donations.length;
     const totalAmount = donations.reduce((sum, donation) => sum + donation.amount, 0);
     
-    // Calculate unique supporters (would need a supporter field in donation model)
-    const totalSupporters = new Set(donations.map(d => d.userId)).size;
+    // Calculate unique supporters (excluding null supporterId for anonymous donations)
+    const supporterIds = donations
+      .filter(d => d.supporterId !== null)
+      .map(d => d.supporterId);
+    const totalSupporters = new Set(supporterIds).size;
 
     // Calculate monthly growth (simplified - comparing this month to last month)
     const now = new Date();
