@@ -15,6 +15,7 @@ const Dashboard = () => {
   const activeLanguage = language ?? FALLBACK_LANGUAGE;
   const seoData = getPageSEO('dashboard', activeLanguage);
   const [activeSection, setActiveSection] = useState("overview");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const renderSection = () => {
     switch (activeSection) {
@@ -31,14 +32,24 @@ const Dashboard = () => {
     }
   };
 
+  const handleSectionChange = (section) => {
+    setActiveSection(section);
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <>
       <SEO {...seoData} />
       <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
-        <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
+        <Sidebar 
+          activeSection={activeSection} 
+          setActiveSection={handleSectionChange}
+          isMobileMenuOpen={isMobileMenuOpen}
+          setIsMobileMenuOpen={setIsMobileMenuOpen}
+        />
         <div className="flex-1 flex flex-col overflow-hidden">
-          <Navbar />
-          <main className="flex-1 overflow-y-auto p-6">
+          <Navbar setIsMobileMenuOpen={setIsMobileMenuOpen} />
+          <main className="flex-1 overflow-y-auto p-4 md:p-6">
             {renderSection()}
           </main>
         </div>

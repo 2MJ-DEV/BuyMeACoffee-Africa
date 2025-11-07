@@ -4,7 +4,7 @@ import { LogOut, Menu } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { FALLBACK_LANGUAGE } from "../../../context/I18nContext";
 
-const Navbar = () => {
+const Navbar = ({ setIsMobileMenuOpen }) => {
   const { t, language } = useI18n();
   const { user, logout } = useAuth();
   const navigate = useNavigate();
@@ -19,13 +19,16 @@ const Navbar = () => {
     <nav className="bg-white dark:bg-gray-800 shadow border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <button className="lg:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+          <div className="flex items-center gap-3">
+            <button 
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="lg:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
               <Menu className="w-6 h-6" />
             </button>
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white ml-2">{t("dashboard.title")}</h1>
+            <h1 className="text-xl font-bold text-gray-900 dark:text-white">{t("dashboard.title")}</h1>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
             <div className="flex items-center gap-3">
               {user?.githubAvatarUrl && (
                 <img
