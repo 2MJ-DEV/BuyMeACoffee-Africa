@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithubAlt } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa6";
+import { useGoogleLogin } from "@react-oauth/google";
 import SEO from "../components/SEO";
 import { FALLBACK_LANGUAGE, useI18n } from "../context/I18nContext";
 import { useAuth } from "../context/AuthContext";
@@ -10,6 +11,7 @@ import { getPageSEO } from "../utils/seo";
 
 const clientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
 const redirectUri = import.meta.env.VITE_GITHUB_REDIRECT_URI;
+const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 const Login = () => {
   const { t, language } = useI18n();
@@ -41,6 +43,40 @@ const Login = () => {
 
     window.location.href = `https://github.com/login/oauth/authorize?client_id=${clientId}&scope=user&redirect_uri=${redirectUri}`;
   };
+
+  const handleGoogleLoginSuccess = useCallback(
+    async (tokenResponse) => {
+      setError(null);
+      setIsSubmitting(true);
+
+      try {
+        const response = await apiPost("/api/auth/google", {
+          access_token: tokenResponse.access_token,
+        });
+
+        persistAuth(response);
+        navigate(withLanguagePrefix("/dashboard"), { replace: true });
+      } catch (requestError) {
+        setError(requestError.message ?? t("login.form.errors.generic"));
+      } finally {
+        setIsSubmitting(false);
+      }
+    },
+    [navigate, persistAuth, t, withLanguagePrefix],
+  );
+
+  const handleGoogleLoginError = useCallback(
+    (error) => {
+      console.error("Google login error:", error);
+      setError(t("auth.errors.providerNotConfigured", { provider: "Google" }));
+    },
+    [t],
+  );
+
+  const googleLogin = useGoogleLogin({
+    onSuccess: handleGoogleLoginSuccess,
+    onError: handleGoogleLoginError,
+  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -120,9 +156,10 @@ const Login = () => {
             </button>
 
             <button
+              onClick={() => googleLogin()}
               type="button"
-              disabled
-              className="btn-secondary flex cursor-not-allowed items-center justify-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold"
+              disabled={!googleClientId || isSubmitting}
+              className="btn-primary flex items-center justify-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-75"
             >
               <FaGoogle className="icon-accent text-base" />
               {t("login.google")}
