@@ -17,6 +17,8 @@ model User {
   githubId             String?   @unique
   githubUsername       String?
   githubAvatarUrl      String?
+  googleId             String?   @unique
+  googleAvatarUrl      String?
   mobileMoneyNumber    String?
   mobileMoneyProvider  String?
   role                 String    @default("user")

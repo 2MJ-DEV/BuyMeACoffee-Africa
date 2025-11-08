@@ -9,6 +9,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
 const GITHUB_REDIRECT_URI = process.env.GITHUB_REDIRECT_URI;
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 
 const PUBLIC_USER_SELECT = {
   id: true,
@@ -20,6 +21,8 @@ const PUBLIC_USER_SELECT = {
   githubId: true,
   githubUsername: true,
   githubAvatarUrl: true,
+  googleId: true,
+  googleAvatarUrl: true,
 };
 
 function sanitizeUser(user) {
@@ -243,6 +246,88 @@ export async function loginWithGitHub(req, res, next) {
           githubId,
           githubUsername,
           githubAvatarUrl,
+        },
+        select: {
+          ...PUBLIC_USER_SELECT,
+          password: true,
+        },
+      });
+    }
+
+    return res.json(createAuthResponse(user));
+  } catch (error) {
+    return next(error);
+  }
+}
+
+async function fetchGoogleProfile(accessToken) {
+  const response = await fetch("https://www.googleapis.com/oauth2/v2/userinfo", {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch Google user profile.");
+  }
+
+  return await response.json();
+}
+
+export async function loginWithGoogle(req, res, next) {
+  const { access_token } = req.body ?? {};
+
+  if (!access_token) {
+    return res.status(400).json({ message: "Google access token is required." });
+  }
+
+  try {
+    const profile = await fetchGoogleProfile(access_token);
+
+    if (!profile || !profile.id) {
+      return res.status(400).json({ message: "Unable to retrieve Google profile." });
+    }
+
+    const googleId = String(profile.id);
+    const googleAvatarUrl = profile.picture ?? null;
+    const normalizedEmail = profile.email?.toLowerCase() ?? null;
+    const userName = profile.name ?? profile.email?.split("@")[0] ?? "Google User";
+
+    if (!normalizedEmail) {
+      return res.status(400).json({ message: "Email is required from Google account." });
+    }
+
+    let user = await prisma.user.findUnique({
+      where: { googleId },
+    });
+
+    if (!user && normalizedEmail) {
+      user = await prisma.user.findUnique({
+        where: { email: normalizedEmail },
+      });
+    }
+
+    if (user) {
+      user = await prisma.user.update({
+        where: { id: user.id },
+        data: {
+          googleId,
+          googleAvatarUrl,
+          email: user.email ?? normalizedEmail,
+          name: user.name ?? userName,
+        },
+        select: {
+          ...PUBLIC_USER_SELECT,
+          password: true,
+        },
+      });
+    } else {
+      user = await prisma.user.create({
+        data: {
+          email: normalizedEmail,
+          name: userName,
+          googleId,
+          googleAvatarUrl,
         },
         select: {
           ...PUBLIC_USER_SELECT,
